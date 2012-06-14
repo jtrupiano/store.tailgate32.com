@@ -9,7 +9,7 @@
       <div id="product-header" class="diagonal-divider clearfix">
 
         <div id="product-header-title">
-          <h1 id="product-title">{{ product.title }}</h1>
+          <h2 id="product-title">{{ product.title }}</h2>
           {% if settings.show_vendor %}<h2 id="product-vendor">{{ product.vendor | link_to_vendor }}</h2>{% endif %}
         </div>
 
@@ -20,13 +20,13 @@
               <div class="variants-wrapper clearfix {% if product.variants.size == 1 %}visuallyhidden{% endif %}"> 
                 <select id="product-select" name="id">
                   {% for variant in product.variants %}
-                  <option value="{{ variant.id }}">{{ variant.title | escape }} - {{ variant.price | money }}</option>
+                  <option value="{{ variant.id }}">{{ variant.title | escape }}</option>
                   {% endfor %}
                 </select>
               </div>            
                 
               <div id="purchase">
-                <p class="price"></p>                                 
+                <p class="price"><strong>{{ product.price | money_with_currency }}</strong></p>                                 
                 <input class="btn" type="submit" name="add" id="add-to-cart" value="Add to Cart" />
               </div>
 
@@ -110,3 +110,22 @@
   {% endif %}
 
 </div><!-- /#col-main -->
+
+<div id="col-right">
+  <div class="widget widget-linklist" id="widget-allcollections">
+    <div class="widget-header">
+      <h3><a href="/collections">Other Divisions</a></h3>
+    </div>
+    <div class="widget-content">
+      <ul>
+      {% for collection in collections %}
+        <li>
+          <span class="arrow"></span>
+          <a href="{{ collection.url }}" title="{{ collection.title | escape }}">{{ collection.title | escape }}</a>
+        </li>
+      {% endfor %}
+      </ul>
+    </div>    
+  </div><!-- /.widget -->
+</div>
+<br class="clear" />
