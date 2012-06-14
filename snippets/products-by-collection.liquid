@@ -1,0 +1,30 @@
+<div class="collection-row">
+  <div class="left">
+    <img src="http://assets.tailgate32.com/images/arrow-right.png" height="60" />
+    <h2 class="section-title">{{ collection.title }}</h2>
+    <br class="clear" />
+  </div>
+  <div class="right {{ collection.handle }}">
+    <section class="diagonal-divider clearfix">
+      {% paginate collection.products by 12 %}
+        {% if collection.products.size > 0 %}
+      
+          <ul class="product-grid clearfix">
+          {% for product in collection.products %}
+            <li{% cycle '', '', '', ' class="last-in-row"' %}>
+              {% include 'product-grid-item' %}
+            </li>
+          {% endfor %}
+          </ul>
+
+          {% include 'pagination' %}
+        
+        {% else %}    
+          <strong>No products found in this collection.</strong>
+        {% endif %}
+      {% endpaginate %}
+    </section>
+    <br class="clear" />
+  </div>
+  <br class="clear" />
+</div>

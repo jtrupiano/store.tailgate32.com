@@ -8,11 +8,11 @@
       {{ product.price_min | money }}
     {% endif %}
     </span>
-    <img src="{{ product.featured_image | product_img_url: 'medium' }}" class="product-photo" alt="{{ product.featured_image.alt | escape }}" />
+    <img src="{{ product.featured_image | product_img_url: 'medium' }}" class="product-photo" alt="{{ product.featured_image.alt | escape }}" height="151" />
   </a>
   
   <div class="product-information">
-    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>                    
-  </div>    
+    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+  </div>
           
 </div>    
