@@ -101,6 +101,7 @@ var RADIANCE = {
 
         $('#carousel-thumbs li:first a').addClass('active');
       }      
+      $('#product-gallery.zoom-in').enhanceGallery();
     }
   },
   

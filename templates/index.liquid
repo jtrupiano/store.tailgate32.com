@@ -1,9 +1,8 @@
-<div id="col-main full">
+<div id="col-main" class="full">
   {% include 'carousel' %}
   {% include 'if-shop-has-no-products' %}
 
-  {% for collection in collections %}
-    {% include 'products-by-collection' %}
+  {% for product in collections['Current'].products %}
+    {% include 'product-full' %}
   {% endfor %}
-  <p>Store is closed temporarily.  It will re-open this afternoon.</p>
 </div><!-- /#col-main -->
